@@ -40,7 +40,7 @@
 
         /* --- NAVIGATION --- */
         nav { 
-            background: rgba(255, 255, 255, 0.9); 
+            background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(10px); /* Efek kaca transparan */
             padding: 1.2rem; 
             position: fixed; 
@@ -56,7 +56,7 @@
             color: var(--dark-text); 
             text-decoration: none; 
             font-weight: 600; 
-            margin: 0 20px; 
+            margin: 0 15px; 
             font-size: 1.1rem;
             transition: var(--transition);
             position: relative;
@@ -117,9 +117,53 @@
         }
 
         #about p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray-text);
-            max-width: 800px;
+            max-width: 900px;
+        }
+
+        /* --- EXPERIENCE SECTION --- */
+        .exp-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-orange);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .exp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-3d);
+        }
+
+        .exp-card h3 { color: var(--primary-orange); font-size: 1.6rem; margin-bottom: 5px; }
+        .exp-card h4 { color: var(--dark-text); font-size: 1.2rem; font-weight: 600; }
+        .exp-card .date { 
+            display: inline-block;
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 10px 0 20px 0;
+        }
+        .exp-card ul { list-style: none; padding-left: 0; }
+        .exp-card ul li { 
+            margin-bottom: 12px; 
+            position: relative; 
+            padding-left: 30px; 
+            color: var(--gray-text);
+        }
+        .exp-card ul li::before { 
+            content: '\f058'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute; 
+            left: 0; 
+            color: var(--primary-orange); 
         }
 
         /* --- SKILLS 3D --- */
@@ -142,7 +186,8 @@
         }
 
         .skill-card i { font-size: 3.5rem; color: var(--primary-orange); margin-bottom: 20px; }
-        .skill-card h4 { font-size: 1.5rem; margin-bottom: 10px; }
+        .skill-card h4 { font-size: 1.4rem; margin-bottom: 10px; color: var(--dark-text); }
+        .skill-card p { color: var(--gray-text); }
 
         /* --- PROJECTS 3D --- */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
@@ -158,7 +203,7 @@
         }
 
         .project-card:hover { 
-            transform: translateY(-20px) rotateX(5deg) rotateY(5deg); /* Efek miring 3D */
+            transform: translateY(-15px) rotateX(2deg) rotateY(2deg); /* Efek miring 3D yang lebih halus */
             box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
 
@@ -170,15 +215,16 @@
         
         .project-card:hover .project-img { transform: scale(1.1); }
 
-        .project-content { padding: 30px; }
-        .project-content h3 { color: var(--primary-orange); font-size: 1.4rem; margin-bottom: 15px; }
-        .project-content p { font-size: 1rem; color: var(--gray-text); margin-bottom: 25px; }
+        .project-content { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
+        .project-content .year { font-size: 0.9rem; color: var(--primary-orange); font-weight: 700; margin-bottom: 5px; }
+        .project-content h3 { color: var(--dark-text); font-size: 1.3rem; margin-bottom: 15px; line-height: 1.4; }
+        .project-content p { font-size: 0.95rem; color: var(--gray-text); margin-bottom: 25px; flex-grow: 1; }
 
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
 
         .btn-doc { 
             flex: 1;
-            padding: 12px 20px; 
+            padding: 12px 15px; 
             background: var(--primary-orange); 
             color: white; 
             text-decoration: none; 
@@ -188,6 +234,7 @@
             text-align: center;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+            white-space: nowrap;
         }
 
         .btn-doc:hover { 
@@ -200,13 +247,17 @@
         footer { 
             background: var(--dark-text); 
             color: var(--white); 
-            padding: 80px 20px; 
+            padding: 80px 20px 40px; 
             text-align: center;
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+            margin-top: 50px;
         }
 
-        .contact-info p { font-size: 1.2rem; margin: 15px 0; }
-        .contact-info i { color: var(--primary-orange); margin-right: 10px; }
+        .contact-info { margin-top: 30px; }
+        .contact-info p { font-size: 1.1rem; margin: 15px 0; }
+        .contact-info i { color: var(--primary-orange); margin-right: 15px; font-size: 1.3rem; }
+        .contact-info a { color: var(--white); text-decoration: none; transition: color 0.3s;}
+        .contact-info a:hover { color: var(--primary-orange); }
 
         /* --- ANIMATIONS --- */
         @keyframes fadeInUp {
@@ -216,17 +267,20 @@
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            nav a { margin: 0 10px; font-size: 0.9rem; }
+            nav { padding: 1rem 0.5rem; }
+            nav a { margin: 0 8px; font-size: 0.85rem; }
             .container { padding: 60px 20px; }
             h2 { font-size: 1.8rem; }
             header { height: 60vh; }
+            .exp-card { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#about">Tentang</a>
+        <a href="#about">Profil</a>
+        <a href="#experience">Pengalaman</a>
         <a href="#skills">Keahlian</a>
         <a href="#projects">Proyek</a>
         <a href="#contact">Kontak</a>
@@ -241,75 +295,120 @@
 
     <section class="container" id="about">
         <h2>Profil Saya</h2>
-        <p>Mahasiswa S1 Mekatronika dan Kecerdasan Buatan dengan fokus utama pada sistem otomatisasi, pemrograman PLC, dan pengembangan Internet of Things (IoT). Mampu mengintegrasikan prinsip-prinsip teknik elektro dan mekanik untuk mengembangkan sistem mekatronika yang mendorong efisiensi industri. Memiliki rasa tanggung jawab yang tinggi, kemampuan beradaptasi, dan kemampuan untuk berkembang dalam lingkungan tim. Antusias untuk memanfaatkan keahlian teknis untuk berkontribusi pada pengembangan sektor industri.</p>
+        <p>Mahasiswa S1 Mekatronika dan Kecerdasan Buatan di Universitas Pendidikan Indonesia (IPK 3.52/4.00) dengan fokus utama pada sistem otomatisasi, pemrograman PLC, dan pengembangan Internet of Things (IoT). Mampu mengintegrasikan prinsip-prinsip teknik elektro dan mekanik untuk mengembangkan sistem mekatronika yang mendorong efisiensi industri. Memiliki rasa tanggung jawab yang tinggi, kemampuan beradaptasi, dan antusias untuk memanfaatkan keahlian teknis dalam berkontribusi pada pengembangan sektor industri.</p>
     </section>
 
-    <section class="container" id="skills">
+    <section class="container" id="experience" style="padding-top: 20px;">
+        <h2>Pengalaman Profesional</h2>
+        <div class="exp-card">
+            <h3>Internship Automation Engineer</h3>
+            <h4>PT Lautan Air Indonesia - Kab. Tangerang, Banten</h4>
+            <span class="date">Februari 2026 - Agustus 2026</span>
+            <ul>
+                <li>Merancang dan mengembangkan sistem otomasi industri berbasis PLC Schneider.</li>
+                <li>Membangun dan mengimplementasikan proyek berbasis mikrokontroler Arduino.</li>
+                <li>Membuat desain model 3D menggunakan AutoCAD.</li>
+                <li>Membangun Desktop HMI (Human-Machine Interface) yang interaktif menggunakan framework Flutter.</li>
+                <li>Membantu proses pemeliharaan darurat (emergency maintenance) dan troubleshooting pada sistem otomasi.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="container" id="skills" style="padding-top: 20px;">
         <h2>Keahlian Teknis</h2>
         <div class="skills-grid">
             <div class="skill-card">
+                <i class="fas fa-server"></i>
+                <h4>Control & Automation</h4>
+                <p>Schneider PLC, Delta PLC, Omron PLC, FluidSim (Pneumatic & Hydraulic)</p>
+            </div>
+            <div class="skill-card">
                 <i class="fas fa-microchip"></i>
-                <h4>Control & Simulation</h4>
-                <p>Omron PLC, Delta PLC, FluidSim</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-code"></i>
-                <h4>Programming</h4>
-                <p>Python, C/C++, Arduino IDE, VS Code</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-wifi"></i>
+                <i class="fas fa-wifi" style="margin-left: 10px;"></i>
                 <h4>Embedded & IoT</h4>
-                <p>ESP32, Arduino, MQTT, Sensor Integration</p>
+                <p>Arduino, ESP32, Sensor Integration, Arus Lemah Listrik</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-laptop-code"></i>
+                <h4>Software & Design</h4>
+                <p>Flutter (Desktop HMI), AutoCAD (3D Design), C/C++ (Arduino IDE)</p>
             </div>
         </div>
     </section>
 
-    <section class="container" id="projects">
-        <h2>Pengalaman Proyek</h2>
+    <section class="container" id="projects" style="padding-top: 20px;">
+        <h2>Rekam Jejak Proyek</h2>
         <div class="project-grid">
             
             <div class="project-card">
-                <img src="Smart Waste.png" class="project-img" alt="Waste Management">
+                <img src="Pump Ejector.jpeg" class="project-img" alt="Pump Ejector">
                 <div class="project-content">
-                    <h3>Sistem Pengelolaan Sampah Pintar</h3>
-                    <p>Membangun sistem IoT real-time untuk memilah sampah dan memprediksi kebusukan menggunakan algoritma Random Forest Regression.</p>
+                    <span class="year">2026</span>
+                    <h3>Pump Ejector System</h3>
+                    <p>Merancang sistem kendali Pump Ejector berbasis mikrokontroler nirkabel menggunakan Arduino Uno R4 WiFi.</p>
                     <div class="btn-group">
-                        <a href="https://drive.google.com/file/d/1-ikKQDgGuRp6cIwQThq4wgZDwI0WAIzf/view?usp=sharing" class="btn-doc"><i class="fas fa-link"></i> Dokumentasi</a>
+                        <a href="https://drive.google.com/file/d/1cN7OBWBOzIMo3SuSVgwy-W3sSpOqFr9X/view?usp=drive_link" class="btn-doc"><i class="fas fa-info-circle"></i> Detail Proyek</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="Smart Garage.jpeg" class="project-img" alt="Smart Garage">
+                <img src="Auto Dilution Design 3D.png" class="project-img" alt="Auto Dilution System">
                 <div class="project-content">
-                    <h3>Sistem Garasi Pintar</h3>
-                    <p>•	Merancang prototype sistem garasi pintar menggunakan Arduino UNO dengan Ultrasonic sensor, PIR sensor dan LDR sensor.</p>
+                    <span class="year">2026</span>
+                    <h3>Auto Dilution System</h3>
+                    <p>Mengembangkan sistem Auto Dilution berbasis PLC Schneider untuk industri.</p>
                     <div class="btn-group">
-                        <a href="https://drive.google.com/file/d/1hJWuFOkJOTU9THI2hZWYC7zmkDPOFmIb/view?usp=sharing" class="btn-doc"><i class="fas fa-link"></i> Dokumentasi</a>
+                        <a href="https://drive.google.com/file/d/1IHvANLuGQe6Eu9uTHUlp7H82_s8k0TOl/view?usp=drive_link" class="btn-doc"><i class="fas fa-info-circle"></i> Detail Proyek</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="Line Follower.jpeg" class="project-img" alt="Robot Firefighter">
+                <img src="Line Follower.jpeg" onerror="this.src='https://placehold.co/600x400/FFF5E6/FF8C00?text=Robot+Pemadam'" class="project-img" alt="Robot Firefighter">
                 <div class="project-content">
+                    <span class="year">2025</span>
                     <h3>Robot Line Follower Pemadam Api</h3>
-                    <p>Robot berbasis ESP32 dengan deteksi api otomatis menggunakan Computer Vision (OpenCV) dan protokol MQTT.</p>
+                    <p>Robot berbasis mikrokontroler (ESP32) dengan deteksi api otomatis menggunakan Computer Vision untuk simulasi pemadaman otonom.</p>
                     <div class="btn-group">
-                        <a href="https://drive.google.com/file/d/1i0MhOXmR99Ui23ntBbdtdkBifpcDjOEv/view?usp=sharing" class="btn-doc"><i class="fas fa-link"></i> Dokumentasi</a>
+                        <a href="https://drive.google.com/file/d/1i0MhOXmR99Ui23ntBbdtdkBifpcDjOEv/view?usp=sharing" class="btn-doc" target="_blank"><i class="fas fa-link"></i> Dokumentasi</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="Smart Water Tank.jpeg" class="project-img" alt="Smart Water Tank">
+                <img src="Smart Waste.png" onerror="this.src='https://placehold.co/600x400/FFF5E6/FF8C00?text=Smart+Waste'" class="project-img" alt="Waste Management">
                 <div class="project-content">
-                    <h3>Monitoring Tanki Air Otomatis</h3>
-                    <p>Merancang dan membangun sistem pemantauan level tanki air otomatis menggunakan Arduino UNO dengan Ultrasonic sensor.</p>
+                    <span class="year">2025</span>
+                    <h3>Sistem Manajemen Sampah Pintar</h3>
+                    <p>Membangun sistem IoT real-time untuk memilah sampah dan memprediksi tingkat dekomposisi menggunakan algoritma Machine Learning.</p>
                     <div class="btn-group">
-                        <a href="https://youtu.be/eAl2dR0GVk8" class="btn-doc"><i class="fab fa-youtube"></i> Video Demo</a>
-                        <a href="https://drive.google.com/file/d/1fF-xSH2t6S-esuvrPHEGEefASq0VxP10/view?usp=sharing" class="btn-doc"><i class="fas fa-link"></i> Dokumen</a>
+                        <a href="https://drive.google.com/file/d/1-ikKQDgGuRp6cIwQThq4wgZDwI0WAIzf/view?usp=sharing" class="btn-doc" target="_blank"><i class="fas fa-link"></i> Dokumentasi</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="Smart Garage.jpeg" onerror="this.src='https://placehold.co/600x400/FFF5E6/FF8C00?text=Smart+Garage'" class="project-img" alt="Smart Garage">
+                <div class="project-content">
+                    <span class="year">2024</span>
+                    <h3>Prototipe Sistem Garasi Pintar</h3>
+                    <p>Merancang prototipe keamanan dan otomasi garasi pintar menggunakan Arduino UNO yang diintegrasikan dengan sensor Ultrasonik.</p>
+                    <div class="btn-group">
+                        <a href="https://drive.google.com/file/d/1hJWuFOkJOTU9THI2hZWYC7zmkDPOFmIb/view?usp=sharing" class="btn-doc" target="_blank"><i class="fas fa-link"></i> Dokumentasi</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="Smart Water Tank.jpeg" onerror="this.src='https://placehold.co/600x400/FFF5E6/FF8C00?text=Water+Tank'" class="project-img" alt="Smart Water Tank">
+                <div class="project-content">
+                    <span class="year">2024</span>
+                    <h3>Monitoring Level Tangki Air</h3>
+                    <p>Merancang dan membangun sistem pemantauan level kapasitas tangki air secara otomatis presisi menggunakan sensor ultrasonik.</p>
+                    <div class="btn-group">
+                        <a href="https://youtu.be/eAl2dR0GVk8" class="btn-doc" target="_blank"><i class="fab fa-youtube"></i> Video</a>
+                        <a href="https://drive.google.com/file/d/1fF-xSH2t6S-esuvrPHEGEefASq0VxP10/view?usp=sharing" class="btn-doc" target="_blank"><i class="fas fa-link"></i> Dokumen</a>
                     </div>
                 </div>
             </div>
@@ -318,17 +417,17 @@
     </section>
 
     <footer id="contact">
-        <div class="container">
-            <h2 style="color: white; border-color: white;">Kontak Saya</h2>
+        <div class="container" style="padding: 0;">
+            <h2 style="color: white; border-color: white;">Informasi Kontak</h2>
             <div class="contact-info">
-                <p><i class="fas fa-phone"></i> +62 812 2144 5775</p>
-                <p><i class="fas fa-envelope"></i> farhanmridwan@gmail.com</p>
-                <p><i class="fab fa-linkedin"></i> Farhan Maulani R</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:081221445775">+62 812-2144-5775</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:farhanmridwan@gmail.com">farhanmridwan@gmail.com</a></p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/farhan-maulani-r-b474b6295" target="_blank">Farhan Maulani Ridwan</a></p>
+                <p><i class="fas fa-globe"></i> <a href="https://portofolio-farhanmaulanir.vercel.app" target="_blank">Web Portofolio Utama</a></p>
             </div>
-            <p style="margin-top: 50px; opacity: 0.6;">&copy; 2026 Farhan Maulani Ridwan. Universitas Pendidikan Indonesia.</p>
+            <p style="margin-top: 50px; opacity: 0.6; font-size: 0.9rem;">&copy; 2026 Farhan Maulani Ridwan. Universitas Pendidikan Indonesia.</p>
         </div>
     </footer>
 
 </body>
-
 </html>
